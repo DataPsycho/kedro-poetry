@@ -117,6 +117,34 @@ When there is alrady a `src` directory and a `pyproject.toml` file in place, `Ke
 
 So may be there can be a --poetry flag which can be used while in the project poetry is going to be used. Or there can be --src-in-root (if exist) or --use-pyproject (if exist) flag to make it more general when there is already a src directory and a pyproject.toml file.
 
+The expected Project should looks as followes if Kedro would take consideration of the Poetry generated files:
+```
+.
+├── poetry.lock
+├── pyproject.toml
+├── README.rst
+├── conf
+├── data
+├── docs
+├── logs
+├── notebooks
+├── setup.cfg
+├── src
+│   ├── kedropoetry # Poetry Created
+    ├── requirements.txt # Kedro Created
+    ├── sample_project # Kedro Created
+    ├── setup.py # Kedro Created
+    ├── __init__.py # No need for that file in src
+└── tests
+    ├── __init__.py
+    ├── __pycache__
+    ├── test_kedropoetry.py
+    ├── test_pipeline.py
+    └── test_run.py
+```
+
+This folder structure will be sataisfied by Kedro and Poetry both.
+
 
 
 
